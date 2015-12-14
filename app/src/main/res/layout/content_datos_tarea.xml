@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.motorapp.proyectodam.proyectomotorapp.DatosCliente"
-    tools:showIn="@layout/activity_datos_cliente">
+    tools:showIn="@layout/activity_datos_tarea">
 
     <TableLayout
         android:id="@+id/tableLayout"
@@ -81,7 +81,7 @@
                     android:textColor="#FF696969" />
 
                 <EditText
-                    android:id="@+id/marcaEdittText"
+                    android:id="@+id/matriculaEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text" />

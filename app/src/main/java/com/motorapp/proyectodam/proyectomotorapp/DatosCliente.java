@@ -96,7 +96,7 @@ public class DatosCliente extends AppCompatActivity implements View.OnClickListe
             }
         } else {
             //lanzar tarear a realizar
-            lanzarVehiculoExiste(matricula);
+            lanzarVehiculoExiste(userMatriculaStr);
         }
     }
 

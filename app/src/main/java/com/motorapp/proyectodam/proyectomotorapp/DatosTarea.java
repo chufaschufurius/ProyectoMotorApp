@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.motorapp.proyectodam.proyectomotorapp.Data.CarsEntry;
+import com.motorapp.proyectodam.proyectomotorapp.Data.TasksEntry;
 
 public class DatosTarea extends AppCompatActivity {
 
@@ -46,19 +47,19 @@ public class DatosTarea extends AppCompatActivity {
         fab.hide();
 
         Intent intent = getIntent();
-        matricula = intent.getStringExtra("matricula").toUpperCase();
+        matricula = intent.getStringExtra("matricula");
 
         matriculaEdit = (EditText) findViewById(R.id.matriculaEditText);
         descriptionEdit = (EditText) findViewById(R.id.descriptionEditText);
         ownerEdit = (EditText) findViewById(R.id.ownerEditText);
 
-//        matriculaEdit.setText(matricula);
+        matriculaEdit.setText(matricula);
     }
 
     public void onClick(View view) {
-        String userMatriculaStr = matriculaEdit.getText().toString().toUpperCase();
-        String userDescriptionStr = descriptionEdit.getText().toString().toUpperCase();
-        String userOwnerStr = ownerEdit.getText().toString().toUpperCase();
+        String userMatriculaStr = String.valueOf(matriculaEdit).toUpperCase();
+        String userDescriptionStr = String.valueOf(descriptionEdit).toUpperCase();
+        String userOwnerStr = String.valueOf(ownerEdit.getText()).toUpperCase();
 
         if (userDescriptionStr.equals("") || userOwnerStr.equals("") || userMatriculaStr.equals("")) {
             //TOAST RELLENAR CAMPOS VACIOS
@@ -73,8 +74,10 @@ public class DatosTarea extends AppCompatActivity {
         }
     }
 
-    //Pendiente implementar
     public void insertarNuevaTarea(String Matricula, String Descrip, String Owner) {
+        TasksEntry.setPLATE(Matricula);
+        TasksEntry.setDESCRIPTION(Descrip);
+        TasksEntry.setOWNER(Owner);
     }
 
     public void back(View view) {

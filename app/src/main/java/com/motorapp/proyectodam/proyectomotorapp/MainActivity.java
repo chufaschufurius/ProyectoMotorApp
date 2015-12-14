@@ -48,13 +48,6 @@ public class MainActivity extends AppCompatActivity {
             super.onPreExecute();
             // Create a progressdialog
             mProgressDialog = new ProgressDialog(MainActivity.this);
-            // Set progressdialog title
-            mProgressDialog.setTitle("Parse.com Simple ListView Tutorial");
-            // Set progressdialog message
-            mProgressDialog.setMessage("Loading...");
-            mProgressDialog.setIndeterminate(false);
-            // Show progressdialog
-            mProgressDialog.show();
         }
 
         @Override

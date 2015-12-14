@@ -26,6 +26,7 @@ public class NuevoVehiculo extends AppCompatActivity {
     private String phone;
     private EditText owner;
     private EditText matriculaEdit, marcaEdit, modeloEdit, numMotorEdit, trabajoEdit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,14 +72,15 @@ public class NuevoVehiculo extends AppCompatActivity {
         matriculaEdit.setText(matricula);
         marcaEdit.setText(marca);
     }
-    public void back(View view){
-        Intent intent= new Intent(this, SeleccionarMarca.class);
+
+    public void back(View view) {
+        Intent intent = new Intent(this, SeleccionarMarca.class);
         startActivity(intent);
         finish();
     }
 
     public void onClick(View v) {
-        String cocheMatriculaStr = String.valueOf(matriculaEdit.getText()) ;
+        String cocheMatriculaStr = String.valueOf(matriculaEdit.getText());
         String cocheMarcaStr = String.valueOf(marcaEdit.getText());
         String cocheModeloStr = String.valueOf(modeloEdit.getText());
         String cocheNumMotorStr = String.valueOf(numMotorEdit.getText());
@@ -97,6 +99,7 @@ public class NuevoVehiculo extends AppCompatActivity {
             CarsEntry.setPLATE(cocheMatriculaStr);
             TasksEntry.setOWNER(cocheOwnerStr);
             TasksEntry.setDESCRIPTION(cocheTrabajoStr);
+            TasksEntry.setPLATE(cocheMatriculaStr);
             ClientsEntry.setFkPlate(matricula);
             ClientsEntry.setEMAIL(emailC);
             ClientsEntry.setNAME(nombreC);
@@ -110,7 +113,7 @@ public class NuevoVehiculo extends AppCompatActivity {
 
             Toast.makeText(getApplicationContext(), "Nueva tarea insertada satisfactoriamente", Toast.LENGTH_LONG);
 
-            Intent intent= new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();
         }

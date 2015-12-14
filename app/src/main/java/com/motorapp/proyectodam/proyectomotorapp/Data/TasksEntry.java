@@ -9,6 +9,7 @@ public class TasksEntry implements Serializable {
     public static String TABLE_NAME = "tasks";
     public static String DESCRIPTION = "description";
     public static String OWNER = "owner";
+    public static String PLATE = "plate";
 
     @Override
     public String toString() {
@@ -16,6 +17,7 @@ public class TasksEntry implements Serializable {
                 "cars='" + TABLE_NAME + '\'' +
                 ", DESCRIPTION='" + DESCRIPTION + '\'' +
                 ", OWNER='" + OWNER + '\'' +
+                ", PLATE='" + PLATE + '\'' +
                 '}';
     }
 
@@ -33,6 +35,14 @@ public class TasksEntry implements Serializable {
 
     public static void setOWNER(String OWNER) {
         TasksEntry.OWNER = OWNER;
+    }
+
+    public static String getPLATE() {
+        return PLATE;
+    }
+
+    public static void setPLATE(String PLATE) {
+        TasksEntry.PLATE = PLATE;
     }
 
 }

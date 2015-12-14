@@ -36,8 +36,9 @@ public class DataSource {
 
     public static void insertTasks() {
         ParseObject tasks = new ParseObject("tasks");
-        tasks.put("description", ClientsEntry.getFkPlate());
-        tasks.put("owner", ClientsEntry.getEMAIL());
+        tasks.put("description", TasksEntry.getDESCRIPTION());
+        tasks.put("owner", TasksEntry.getOWNER());
+        tasks.put("plate", TasksEntry.getPLATE());
         tasks.saveInBackground();
     }
 }

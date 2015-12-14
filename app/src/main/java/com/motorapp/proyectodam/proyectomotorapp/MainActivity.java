@@ -1,5 +1,6 @@
 package com.motorapp.proyectodam.proyectomotorapp;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -21,29 +22,25 @@ import java.text.ParseException;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    // Declare Variables
     ListView listview;
     List<ParseObject> ob;
     ProgressDialog mProgressDialog;
     ArrayAdapter<String> adapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        // Get the view from listview_main.xml
+        setContentView(R.layout.listview_main);
+        // Set a toolbar to replace the action bar.
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
+        // Execute RemoteDataTask AsyncTask
         new RemoteDataTask().execute();
     }
+
     // RemoteDataTask AsyncTask
     private class RemoteDataTask extends AsyncTask<Void, Void, Void> {
         @Override
@@ -64,11 +61,12 @@ public class MainActivity extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
             // Locate the class table named "Country" in Parse.com
             ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
-                    "cars");
+                    "tasks");
             query.orderByDescending("_created_at");
             try {
                 ob = query.find();
             } catch (com.parse.ParseException e) {
+                Log.e("Error", e.getMessage());
                 e.printStackTrace();
             }
             return null;
@@ -83,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                     R.layout.listview_item);
             // Retrieve object "name" from Parse.com database
             for (ParseObject task : ob) {
-                adapter.add((String) task.get("task"));
+                adapter.add((String) task.get("description"));
             }
             // Binds the Adapter to the ListView
             listview.setAdapter(adapter);

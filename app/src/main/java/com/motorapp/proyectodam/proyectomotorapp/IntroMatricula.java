@@ -79,7 +79,7 @@ public class IntroMatricula extends AppCompatActivity implements View.OnClickLis
     }
 
     public void back(View view){
-        Intent intent= new Intent(this, Lista.class);
+        Intent intent= new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }

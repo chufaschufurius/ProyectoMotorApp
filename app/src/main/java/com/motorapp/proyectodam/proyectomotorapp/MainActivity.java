@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.parse.ParseObject;
@@ -36,9 +37,16 @@ public class MainActivity extends AppCompatActivity {
         // Set a toolbar to replace the action bar.
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Button nueva= (Button) findViewById(R.id.nueva);
 
         // Execute RemoteDataTask AsyncTask
         new RemoteDataTask().execute();
+
+    }
+
+    public void onClick (View view){
+        Intent intent = new Intent(this, IntroMatricula.class);
+        startActivity(intent);
     }
 
     // RemoteDataTask AsyncTask

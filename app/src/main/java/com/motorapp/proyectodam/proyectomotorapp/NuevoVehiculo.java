@@ -108,7 +108,9 @@ public class NuevoVehiculo extends AppCompatActivity {
             dataSource.insertCars();
             dataSource.insertTasks();
 
-            Intent intent= new Intent(this, Lista.class);
+            Toast.makeText(getApplicationContext(), "Nueva tarea insertada satisfactoriamente", Toast.LENGTH_LONG);
+
+            Intent intent= new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();
         }

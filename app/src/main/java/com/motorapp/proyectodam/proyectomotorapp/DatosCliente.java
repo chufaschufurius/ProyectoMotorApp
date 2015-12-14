@@ -24,6 +24,7 @@ import java.util.regex.Pattern;
 public class DatosCliente extends AppCompatActivity implements View.OnClickListener{
     private EditText matriculaEdit, nombreEdit, apellidoEdit, emailEdit, telefonoEdit, cocheEdit;
     private String matricula;
+
     private Button siguiente;
 
     @Override
@@ -54,7 +55,6 @@ public class DatosCliente extends AppCompatActivity implements View.OnClickListe
         });
         fab.hide();
 
-
         Intent intent = getIntent();
         matricula = intent.getStringExtra("matricula").toUpperCase();
 
@@ -72,10 +72,10 @@ public class DatosCliente extends AppCompatActivity implements View.OnClickListe
         extraerDatosCoche(matricula.toUpperCase());
         //Esconde el editText de "coche" si no existe en la bbdd
         String coche = cocheEdit.getText().toString();
-//        if(coche.equals("")){
-//            cocheEdit.setVisibility(View.VISIBLE);
-//        }else{
-//            cocheEdit.setVisibility(View.INVISIBLE);
+        if(coche.equals("")){
+            cocheEdit.setVisibility(View.VISIBLE);
+        }else{
+            cocheEdit.setVisibility(View.INVISIBLE);}
 
     }
     @Override
@@ -89,15 +89,16 @@ public class DatosCliente extends AppCompatActivity implements View.OnClickListe
 
         if (userCocheStr.equals("")) {
             if (userApellidosStr.equals("") || userNombreStr.equals("") || userEmailStr.equals("") || userTelefonoStr.equals("") || userMatriculaStr.equals("")) {
-                //VENTANA EMERGENTE RELLENAR CAMPOS VACIOS
+                //TOAST RELLENAR CAMPOS VACIOS
                 Toast.makeText(getApplicationContext(),
                         "Por favor completa los campos vacios",
                         Toast.LENGTH_LONG).show();
-            } else {
+            } else{
                 lanzarNuevoVehiculo(userNombreStr, userApellidosStr, userEmailStr, userTelefonoStr, userMatriculaStr);
             }
         } else {
             //lanzar tarear a realizar
+            lanzarVehiculoExiste(matricula);
         }
     }
 
@@ -119,8 +120,7 @@ public class DatosCliente extends AppCompatActivity implements View.OnClickListe
                         apellidoEdit.setText(apellido);
                         emailEdit.setText(email);
                         telefonoEdit.setText(phone);
-
-
+                        extraerDatosCoche(matricula);
                     }
                 } else {
                     Log.d("clients", "Error: " + e.getMessage());
@@ -144,7 +144,9 @@ public class DatosCliente extends AppCompatActivity implements View.OnClickListe
                         String marca = p.getString("brand");
                         String modelo = p.getString("model");
                         cocheEdit.setText(marca + " " + modelo);
+
                     }
+
                 } else {
                     Log.d("clients", "Error: " + e.getMessage());
                 }
@@ -175,6 +177,14 @@ public class DatosCliente extends AppCompatActivity implements View.OnClickListe
         intent.putExtra("emailC", email);
         intent.putExtra("phone", phone);
         intent.putExtra("matricula", matricula);
+        startActivity(intent);
+    }
+
+    public void lanzarVehiculoExiste(String matric) {
+
+        Intent intent = new Intent(this, DatosTarea.class);
+        matric=matricula;
+        intent.putExtra("matricula", matric);
         startActivity(intent);
 
     }

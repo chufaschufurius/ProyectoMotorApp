@@ -22,11 +22,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Lista"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
-        <activity
             android:name=".IntroMatricula"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" >

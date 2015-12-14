@@ -63,7 +63,7 @@ public class SeleccionarMarca extends AppCompatActivity {
         startActivity(intent);
     }
     public void back(View view){
-        Intent intent= new Intent(this, DatosCliente.class);
+        Intent intent= new Intent(this, IntroMatricula.class);
         startActivity(intent);
         finish();
     }

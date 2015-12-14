@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.motorapp.proyectodam.proyectomotorapp.Data.CarsEntry;
+
 public class DatosTarea extends AppCompatActivity {
 
     private EditText matriculaEdit, descriptionEdit, ownerEdit;
@@ -41,7 +43,6 @@ public class DatosTarea extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
         fab.hide();
 
         Intent intent = getIntent();
@@ -65,31 +66,16 @@ public class DatosTarea extends AppCompatActivity {
                     "Por favor completa los campos vacios",
                     Toast.LENGTH_LONG).show();
         } else {
+            insertarNuevaTarea(userMatriculaStr, userDescriptionStr, userOwnerStr);
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();
         }
     }
 
-    //    public void extraerMatricula(final String matricula) {
-//        ParseQuery<ParseObject> query = ParseQuery.getQuery("clients");
-//        query.whereEqualTo("plate", matricula.toUpperCase());
-//        query.findInBackground(new FindCallback<ParseObject>() {
-//            @Override
-//            public void done(List objects, ParseException e) {
-//                if (e == null) {
-//                    int len = objects.size();
-//                    for (int i = 0; i < len; i++) {
-//                        ParseObject p = (ParseObject) objects.get(i);
-//                        String matricula = p.getString("plate");
-//                        matriculaEdit.setText(matricula);
-//                    }
-//                } else {
-//                    Log.d("clients", "Error: " + e.getMessage());
-//                }
-//            }
-//        });
-//    }
+    public void insertarNuevaTarea(String Matricula, String Descrip, String Owner) {
+    }
+
     public void back(View view) {
         Intent intent = new Intent(this, IntroMatricula.class);
         startActivity(intent);

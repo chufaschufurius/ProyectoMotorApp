@@ -182,7 +182,6 @@ public class DatosCliente extends AppCompatActivity implements View.OnClickListe
     public void lanzarVehiculoExiste(String matric) {
 
         Intent intent = new Intent(this, DatosTarea.class);
-        matric=matricula;
         intent.putExtra("matricula", matric);
         startActivity(intent);
         finish();

@@ -93,29 +93,33 @@ public class NuevoVehiculo extends AppCompatActivity {
                     "Por favor completa los campos vacios",
                     Toast.LENGTH_LONG).show();
         } else {
-            CarsEntry.setBRAND(cocheMarcaStr);
-            CarsEntry.setMODEL(cocheModeloStr);
-            CarsEntry.setMotorNumber(cocheNumMotorStr);
-            CarsEntry.setPLATE(cocheMatriculaStr);
-            TasksEntry.setOWNER(cocheOwnerStr);
-            TasksEntry.setDESCRIPTION(cocheTrabajoStr);
-            TasksEntry.setPLATE(cocheMatriculaStr);
-            ClientsEntry.setFkPlate(matricula);
-            ClientsEntry.setEMAIL(emailC);
-            ClientsEntry.setNAME(nombreC);
-            ClientsEntry.setSURNAME(apellidoC);
-            ClientsEntry.setPHONE(phone);
-
-            DataSource dataSource = new DataSource(this);
-            dataSource.insertClients();
-            dataSource.insertCars();
-            dataSource.insertTasks();
-
-            Toast.makeText(getApplicationContext(), "Nueva tarea insertada satisfactoriamente", Toast.LENGTH_LONG);
+            insertarNuevaTarea(cocheMatriculaStr, cocheMarcaStr, cocheModeloStr, cocheNumMotorStr, cocheTrabajoStr, cocheOwnerStr);
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();
         }
+    }
+
+    public void insertarNuevaTarea(String cocheMatriculaStr, String cocheMarcaStr, String cocheModeloStr, String cocheNumMotorStr, String cocheTrabajoStr, String cocheOwnerStr) {
+        CarsEntry.setBRAND(cocheMarcaStr);
+        CarsEntry.setMODEL(cocheModeloStr);
+        CarsEntry.setMotorNumber(cocheNumMotorStr);
+        CarsEntry.setPLATE(cocheMatriculaStr);
+        TasksEntry.setOWNER(cocheOwnerStr);
+        TasksEntry.setDESCRIPTION(cocheTrabajoStr);
+        TasksEntry.setPLATE(cocheMatriculaStr);
+        ClientsEntry.setFkPlate(matricula);
+        ClientsEntry.setEMAIL(emailC);
+        ClientsEntry.setNAME(nombreC);
+        ClientsEntry.setSURNAME(apellidoC);
+        ClientsEntry.setPHONE(phone);
+
+        DataSource dataSource = new DataSource(this);
+        dataSource.insertClients();
+        dataSource.insertCars();
+        dataSource.insertTasks();
+
+        Toast.makeText(getApplicationContext(), "Nueva tarea insertada satisfactoriamente", Toast.LENGTH_LONG);
     }
 }

@@ -37,4 +37,5 @@
     <string name="namelabel">"Name:"</string>
     <string name="title_activity_nuevo_vehiculo">NuevoVehiculo</string>
     <string name="title_activity_new_task">NewTask</string>
+    <string name="detalle_tarea">Trabajos a realizar: </string>
 </resources>

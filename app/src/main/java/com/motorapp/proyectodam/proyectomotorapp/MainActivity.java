@@ -89,8 +89,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent i = new Intent(MainActivity.this,
                             SingleItemView.class);
                     // Pass data "name" followed by the position
-                    i.putExtra("name", ob.get(position).getString("name")
-                            .toString());
+                    i.putExtra("name", ob.get(position).getString("description"));
                     // Open SingleItemView.java Activity
                     startActivity(i);
                 }

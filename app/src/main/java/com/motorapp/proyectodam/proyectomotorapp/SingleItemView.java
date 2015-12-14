@@ -33,7 +33,7 @@ public class SingleItemView extends AppCompatActivity {
         Intent i = getIntent();
 
         // Get the name
-        name = i.getStringExtra("task");
+        name = i.getStringExtra("name");
 
         // Locate the TextView in singleitemview.xml
         txtname = (TextView) findViewById(R.id.name);

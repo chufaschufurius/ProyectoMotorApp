@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_main" tools:context=".MainActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageSplash"
+        android:layout_marginBottom="500px"
+        android:layout_marginLeft="100px"
+        android:src="@drawable/imagenpistones"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        />
+
+    <ProgressBar
+        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+        android:background="@drawable/progressbar2"
+        android:minHeight="48dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:keepScreenOn="true"
+        android:progress="@android:integer/config_mediumAnimTime"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="50px"
+        android:scrollbarStyle="outsideInset"
+        android:indeterminate="true"
+
+        android:progressBackgroundTint="@color/accent"
+        android:onClick="lanzarLogin" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&quot;Optimize your workshop&quot;"
+        android:id="@+id/textView2"
+        android:textSize="@dimen/design_fab_content_size"
+        android:textAppearance="@style/Base.V7.Widget.AppCompat.EditText"
+        android:layout_marginBottom="53dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_above="@+id/progressBar"
+        android:layout_centerHorizontal="true"
+        android:onClick="lanzarLogin" />
+
+</RelativeLayout>

@@ -176,6 +176,7 @@ public class DatosCliente extends AppCompatActivity implements View.OnClickListe
         intent.putExtra("phone", phone);
         intent.putExtra("matricula", matricula);
         startActivity(intent);
+        finish();
     }
 
     public void lanzarVehiculoExiste(String matric) {
@@ -184,7 +185,7 @@ public class DatosCliente extends AppCompatActivity implements View.OnClickListe
         matric=matricula;
         intent.putExtra("matricula", matric);
         startActivity(intent);
-
+        finish();
     }
 
     public void back(View view){

@@ -61,6 +61,7 @@ public class SeleccionarMarca extends AppCompatActivity {
         intent.putExtra("matricula", matricula);
         intent.putExtra("marca", marca);
         startActivity(intent);
+        finish();
     }
     public void back(View view){
         Intent intent= new Intent(this, IntroMatricula.class);

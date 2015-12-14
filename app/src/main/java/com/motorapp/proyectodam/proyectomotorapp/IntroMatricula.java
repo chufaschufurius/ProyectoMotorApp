@@ -71,12 +71,14 @@ public class IntroMatricula extends AppCompatActivity implements View.OnClickLis
             Intent intent = new Intent(this, DatosCliente.class);
             intent.putExtra("matricula", userMatriculaStr);
             startActivity(intent);
+            finish();
         }
     }
 
     public void lanzarDatosCliente(View v) {
         Intent intent = new Intent(this, DatosCliente.class);
         startActivity(intent);
+        finish();
     }
 
     public void back(View view) {

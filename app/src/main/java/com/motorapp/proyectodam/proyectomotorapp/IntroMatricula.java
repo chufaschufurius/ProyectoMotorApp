@@ -11,9 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class IntroMatricula extends AppCompatActivity implements View.OnClickListener{
+public class IntroMatricula extends AppCompatActivity implements View.OnClickListener {
     private EditText matriculaEdit;
     private Button siguiente, find;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,19 +68,19 @@ public class IntroMatricula extends AppCompatActivity implements View.OnClickLis
                     "Por favor introduzca una Matrícula",
                     Toast.LENGTH_LONG).show();
         } else {
-            Intent intent = new Intent(this,DatosCliente.class);
+            Intent intent = new Intent(this, DatosCliente.class);
             intent.putExtra("matricula", userMatriculaStr);
             startActivity(intent);
         }
     }
 
-    public void lanzarDatosCliente(View v){
-        Intent intent= new Intent(this,DatosCliente.class);
+    public void lanzarDatosCliente(View v) {
+        Intent intent = new Intent(this, DatosCliente.class);
         startActivity(intent);
     }
 
-    public void back(View view){
-        Intent intent= new Intent(this, MainActivity.class);
+    public void back(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }

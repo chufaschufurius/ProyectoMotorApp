@@ -25,8 +25,6 @@ public class DatosCliente extends AppCompatActivity implements View.OnClickListe
     private EditText matriculaEdit, nombreEdit, apellidoEdit, emailEdit, telefonoEdit, cocheEdit;
     private String matricula;
 
-    private Button siguiente;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -171,7 +169,7 @@ public class DatosCliente extends AppCompatActivity implements View.OnClickListe
 
     public void lanzarNuevoVehiculo(String nombre, String apellido, String email, String phone, String matricula) {
 
-        Intent intent = new Intent(DatosCliente.this, SeleccionarMarca.class);
+        Intent intent = new Intent(this, SeleccionarMarca.class);
         intent.putExtra("nombreC", nombre);
         intent.putExtra("apellidoC", apellido);
         intent.putExtra("emailC", email);
